@@ -30,6 +30,12 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Widgets")
 	UUserWidget* PauseMenu;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Widgets")
+	TSubclassOf<UUserWidget> WYoudied;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Widgets")
+	UUserWidget* Youdied;
+
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "HUD")
 	void DisplayPauseMenu();
 
@@ -38,6 +44,12 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "HUD")
 	void TogglePauseMenu();
+
+	// UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "HUD")
+	void DisplayDeadUI();
+
+	// UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "HUD")
+	void RemoveDeadUI();
 
 	bool bEnemyHealthBarVisible;
 

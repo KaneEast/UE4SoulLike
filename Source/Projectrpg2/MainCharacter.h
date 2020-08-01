@@ -181,6 +181,9 @@ protected:
 public:
 	virtual void Tick(float DeltaTime) override;
 
+	//--------------------------------------------------------------------------------------------------------
+	// Character Controll
+
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
@@ -197,8 +200,8 @@ public:
 	bool bLMBDown;
 	void LMBDown();
 	void LMBUp() { bLMBDown = false; }
-
 	void ESCDown();
+	//--------------------------------------------------------------------------------------------------------
 
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
@@ -261,10 +264,13 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat")
 	TSubclassOf<AEnemy> EnemyFilter;
 
+	//--------------------------------------------------------------------------------------------------------
+	// SaveGame LoadGame SwitchLevel
+
 	void SwitchLevel(FName LevelName);
 
 	UFUNCTION(BlueprintCallable)
-		void SaveGame();
+	void SaveGame();
 
 	UFUNCTION(BlueprintCallable)
 	void LoadGame(bool LoadPosition);
@@ -273,7 +279,5 @@ public:
 	void LoadGameNoSwitch();
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SavedData")
-		TSubclassOf<class AItemStorage> WeaponStorage;
-
-	
+	TSubclassOf<class AItemStorage> WeaponStorage;
 };

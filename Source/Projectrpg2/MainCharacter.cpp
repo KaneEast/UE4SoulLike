@@ -47,8 +47,8 @@ AMainCharacter::AMainCharacter()
 	MaxStamina	= 150.f;
 	Coins		= 0;
 
-	RunningSpeed	= 650.f;
-	SprintingSpeed	= 950.f;
+	RunningSpeed	= 500.f;
+	SprintingSpeed	= 800.f;
 
 	bShiftKeyDown	= false;
 	bLMBDown		= false;
@@ -431,6 +431,10 @@ void AMainCharacter::DeathEnd()
 {
 	GetMesh()->bPauseAnims = true;
 	GetMesh()->bNoSkeletonUpdate = true;
+
+	// TODO: Show dead UI
+	// Respawn player
+	MainPlayerController->DisplayDeadUI();
 }
 
 void AMainCharacter::Jump()

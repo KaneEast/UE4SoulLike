@@ -18,16 +18,8 @@ void APickup::OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* O
 		{
 			OnPickupBP(Main);
 			Main->PickupLocations.Add(GetActorLocation());
-
-			if (OverlapParticles)
-			{
-				UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), OverlapParticles, GetActorLocation(), FRotator(0.f), true);
-			}
-			if (OverlapSound)
-			{
-				UGameplayStatics::PlaySound2D(this, OverlapSound);
-			}
-
+			if (OverlapParticles) UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), OverlapParticles, GetActorLocation(), FRotator(0.f), true);
+			if (OverlapSound) UGameplayStatics::PlaySound2D(this, OverlapSound);
 			Destroy();
 		}
 	}

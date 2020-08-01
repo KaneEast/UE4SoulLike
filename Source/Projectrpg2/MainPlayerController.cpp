@@ -30,6 +30,16 @@ void AMainPlayerController::BeginPlay()
 		EnemyHealthBar->SetAlignmentInViewport(Alignment);
 	}
 
+	if (WYoudied)
+	{
+		Youdied = CreateWidget<UUserWidget>(this, WYoudied);
+		if (Youdied)
+		{
+			Youdied->AddToViewport();
+			Youdied->SetVisibility(ESlateVisibility::Hidden);
+		}
+	}
+
 	if (WPauseMenu)
 	{
 		PauseMenu = CreateWidget<UUserWidget>(this, WPauseMenu);
@@ -104,6 +114,24 @@ void AMainPlayerController::TogglePauseMenu()
 	else
 	{
 		RemovePauseMenu();
+	}
+}
+
+void AMainPlayerController::DisplayDeadUI()
+{
+	if (Youdied)
+	{
+		Youdied->AddToViewport();
+		Youdied->SetVisibility(ESlateVisibility::Visible);
+	}
+}
+
+void AMainPlayerController::RemoveDeadUI()
+{
+	if (Youdied)
+	{
+		Youdied->AddToViewport();
+		Youdied->SetVisibility(ESlateVisibility::Hidden);
 	}
 }
 
