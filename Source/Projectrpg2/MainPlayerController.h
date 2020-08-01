@@ -4,10 +4,6 @@
 #include "GameFramework/PlayerController.h"
 #include "MainPlayerController.generated.h"
 
-/**
-/* ÉQÅ[ÉÄÇÃHUDêßå‰
-*/
-
 UCLASS()
 class PROJECTRPG2_API AMainPlayerController : public APlayerController
 {

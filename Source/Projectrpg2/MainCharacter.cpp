@@ -76,7 +76,9 @@ void AMainCharacter::BeginPlay()
 	Map.RemoveFromStart(GetWorld()->StreamingLevelsPrefix);
 	//if (Map != "SunTemple")
 	{
-		LoadGameNoSwitch();
+		// kane comment out for unknown error  :   
+		// LogStreaming: Warning: Failed to read file 'D:/UnrealProjects/rpg2Cleaned/Projectrpg2/Saved/SaveGames/TestSaveSlot.sav' error.
+		//LoadGameNoSwitch(); 
 		if (MainPlayerController)
 		{
 			MainPlayerController->GameModeOnly();
@@ -254,7 +256,7 @@ void AMainCharacter::MoveRight(float value)
 // Turn Camera
 void AMainCharacter::Turn(float Value)
 {
-	if (AllowInput(Value))
+	//if (AllowInput(Value))
 	{
 		AddControllerYawInput(Value);
 	}
@@ -262,7 +264,7 @@ void AMainCharacter::Turn(float Value)
 
 void AMainCharacter::LookUp(float Value)
 {
-	if (AllowInput(Value))
+	//if (AllowInput(Value))
 	{
 		AddControllerPitchInput(Value);
 	}
