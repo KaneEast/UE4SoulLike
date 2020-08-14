@@ -18,14 +18,14 @@ AMainCharacter::AMainCharacter()
 
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
 	CameraBoom->SetupAttachment(GetRootComponent());
-	CameraBoom->TargetArmLength = 350.f;			// ƒJƒƒ‰‚©‚çƒvƒŒƒCƒ„[‚Ü‚Å‚Ì‹——£
-	CameraBoom->bUsePawnControlRotation = true;		// controller‚©‚ç‚Ì‘€ì‚ðŽó‚¯‚é	
+	CameraBoom->TargetArmLength = 350.f;			// ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Ü‚Å‚Ì‹ï¿½ï¿½ï¿½
+	CameraBoom->bUsePawnControlRotation = true;		// controllerï¿½ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½ï¿½ï¿½ï¿½ó‚¯‚ï¿½	
 
 	GetCapsuleComponent()->SetCapsuleSize(27.f, 88.f);
 
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
-	FollowCamera->bUsePawnControlRotation = false;	// ƒJƒƒ‰‚ð‰ñ“]‚·‚é‚ÆƒvƒŒƒCƒ„[‚ªˆÚ“®‚·‚éŽžƒJƒƒ‰•ûŒü‚ÉŒü‚­
+	FollowCamera->bUsePawnControlRotation = false;	// ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]ï¿½ï¿½ï¿½ï¿½Æƒvï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ú“ï¿½ï¿½ï¿½ï¿½éŽžï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÉŒï¿½ï¿½ï¿½
 
 	BaseTurnRate = 65.f;
 	BaseLookUpRate = 65.f;
