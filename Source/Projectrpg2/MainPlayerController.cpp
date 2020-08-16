@@ -1,6 +1,7 @@
 #include "MainPlayerController.h"
 #include "Blueprint/UserWidget.h"
 #include "Kismet/GameplayStatics.h"
+#include "MainMenu/MenuHUD.h"
 
 void AMainPlayerController::BeginPlay()
 {
@@ -139,4 +140,22 @@ void AMainPlayerController::GameModeOnly()
 {
 	FInputModeGameOnly InputModeGameOnly;
 	SetInputMode(InputModeGameOnly);
+}
+
+void AMainPlayerController::SetupInputComponent()
+{
+	Super::SetupInputComponent();
+
+	if (InputComponent)
+	{
+		InputComponent->BindAction("OpenMenu", IE_Pressed, this, &AMainPlayerController::OpenMainMenu);
+	}
+}
+
+void AMainPlayerController::OpenMainMenu()
+{
+	if (AMenuHUD* MenuHUD = Cast<AMenuHUD>(GetHUD()))
+	{
+		MenuHUD->ShowMenu();
+	}
 }

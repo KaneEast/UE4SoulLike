@@ -62,6 +62,11 @@ public:
 
 	void GameModeOnly();
 
+	virtual void SetupInputComponent() override;
+	void OpenMainMenu();
+
+	void OpenLevel(const FName& LevelName);
+
 protected:
 	virtual void BeginPlay() override;
 

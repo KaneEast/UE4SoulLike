@@ -15,5 +15,7 @@ class PROJECTRPG2_API AProjectrpg2GameModeBase : public AGameModeBase
 	GENERATED_BODY()
 	
 public:
+	AProjectrpg2GameModeBase();
+
 	virtual void BeginPlay() override;
 };
