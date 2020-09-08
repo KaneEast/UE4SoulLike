@@ -11,6 +11,7 @@
 #include "MainPlayerController.h"
 #include "RPGSaveGame.h"
 #include "ItemStorage.h"
+#include "ToolsClass/RPGTollsClass.h"
 
 AMainCharacter::AMainCharacter()
 {
@@ -509,21 +510,7 @@ void AMainCharacter::UpdateCombatTarget()
 
 void AMainCharacter::SwitchLevel(FName LevelName)
 {
-	UWorld* World = GetWorld();
-	if (World)
-	{
-		FString CurrentLevel = World->GetMapName();
-		CurrentLevel.RemoveFromStart(GetWorld()->StreamingLevelsPrefix);
-
-		FName CurrentLevelName(*CurrentLevel);
-		if (CurrentLevelName != LevelName)
-		{
-			FString Level = LevelName.ToString();
-			UE_LOG(LogTemp, Warning, TEXT("CurrentLevel: %s"), *CurrentLevel)
-			UE_LOG(LogTemp, Warning, TEXT("LevelName: %s"), *Level)
-			UGameplayStatics::OpenLevel(World, LevelName);
-		}
-	}
+	RPGTollsClass::OpenLevel(LevelName);
 }
 
 void AMainCharacter::SaveGame()

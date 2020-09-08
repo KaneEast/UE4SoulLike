@@ -9,7 +9,7 @@
 void AMenuHUD::BeginPlay()
 {
 	Super::BeginPlay();
-
+	
 	if (GEngine && GEngine->GameViewport)
 	{
 		MenuWidget = SNew(SMainMenuWidget).OwningHUD(this);

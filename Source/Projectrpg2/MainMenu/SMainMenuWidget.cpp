@@ -6,6 +6,7 @@
 #include "MenuHUD.h"
 #include <Kismet/GameplayStatics.h>
 #include "RPGMainMenuPlayerController.h"
+#include "../ToolsClass/RPGTollsClass.h"
 
 #define LOCTEXT_NAMESPACE "MainMenu"
 
@@ -108,6 +109,7 @@ FReply SMainMenuWidget::OnPlayClicked() const
 {
 	if (OwningHUD.IsValid())
 	{
+		//RPGTollsClass::OpenLevel(FName("SunTemple"));
 		if (ARPGMainMenuPlayerController* PC = Cast<ARPGMainMenuPlayerController>(OwningHUD->PlayerOwner))
 		{
 			PC->OpenLevel(FName("SunTemple"));
